@@ -22,9 +22,7 @@ RUN set -x && \
     mkdir /config && \
     apt-get update -q && \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*  \
-    && which dpkg
-
+    && rm -rf /var/lib/apt/lists/* 
 
 # Leave these args here to better use the Docker build cache    
 

@@ -17,8 +17,8 @@ COPY root/ /
 #sudo permission
 
 # hadolint ignore=DL3008
-RUN set -x &&
-    mkdir
+RUN set -x && \
+    mkdir /config && \
     apt-get update -q && \
     apt-get install -q -y --no-install-recommends \
         wget \

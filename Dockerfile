@@ -17,15 +17,16 @@ COPY root/ /
 #sudo permission
 
 # hadolint ignore=DL3008
-RUN apt-get update -q && \
+RUN set -x &&
+    mkdir
+    apt-get update -q && \
     apt-get install -q -y --no-install-recommends \
         wget \
     && apt-get clean \
     && wget -O n2n.deb https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb \
     && dpkg -i n2n.deb \
     && rm n2n.deb \
-    && rm -rf /var/lib/apt/lists/* && \
-  echo "**** create abc user and make our folders ****" 
+    && rm -rf /var/lib/apt/lists/* 
 
 
 # Leave these args here to better use the Docker build cache

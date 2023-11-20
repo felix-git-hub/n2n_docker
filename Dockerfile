@@ -15,20 +15,17 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 #copy file
 COPY root/ /
 #sudo permission
+ADD https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb /tmp
 
 # hadolint ignore=DL3008
 RUN set -x && \
     mkdir /config && \
     apt-get update -q && \
-    apt-get install -q -y --no-install-recommends \
-        wget \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* 
+    && rm -rf /var/lib/apt/lists/*  \
+    && dpkg -i /tmp/n2n_3.1.1_amd64.deb \
+    && rm /tmp/n2n_3.1.1_amd64.deb
 
-RUN set -x && \
-    wget -O n2n.deb https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb && \
-    dpkg -i n2n.deb && \
-    rm n2n.deb 
 
 # Leave these args here to better use the Docker build cache
 

@@ -20,9 +20,7 @@ ADD https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb /tmp
 # hadolint ignore=DL3008
 RUN set -x && \
     mkdir /config && \
-    apt-get update -q && \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* 
+    which dpkg
 
 # Leave these args here to better use the Docker build cache    
 
@@ -30,4 +28,4 @@ RUN set -x && \
 WORKDIR /usr/sbin/
 
 
-CMD [ "/init" ]
+CMD [ "/config/init" ]

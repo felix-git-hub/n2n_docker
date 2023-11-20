@@ -20,8 +20,7 @@ ADD https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb /tmp
 # hadolint ignore=DL3008
 RUN set -x && \
     mkdir /config  && \
-    uname -a && \
-   apt-get install  test  -yy 
+    uname -a 
 
 #user permission
 WORKDIR /sbin/

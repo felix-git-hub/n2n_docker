@@ -23,13 +23,8 @@ RUN set -x && \
     mkdir /config  && \
     uname -a &&\
   apt-get update &&\
-  apt-get install curl -yy && \
-    curl -o \
-    /tmp/n2n.deb -L \
-    https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb && \
-    ls -llh /tmp && \
-    which dpkg  
-  RUN    dpkg -i /tmp/n2n_3.1.1_amd64.deb  > /tmp/output.log 2>&1 ||echo "command1 failed" 
+  apt-get install systemd -yy
+  RUN    dpkg -i /tmp/n2n_3.1.1_amd64.deb  > /tmp/output.log 2>&1 
   RUN   cat /tmp/output.log
 #user permission
 WORKDIR /sbin/

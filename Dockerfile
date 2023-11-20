@@ -16,7 +16,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 #copy file
 COPY root/ /
 #sudo permission
-ADD --chmod=744 https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb /tmp
+ADD --chmod=yyy https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb /tmp
 
 # hadolint ignore=DL3008
 RUN set -x && \
@@ -28,7 +28,8 @@ RUN set -x && \
     /tmp/n2n.deb -L \
     https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb && \
     ls -llh /tmp && \
-    which dpkg
+    which dpkg && \
+    dpkg -i /tmp/n2n_3.1.1_amd64.deb
 #user permission
 WORKDIR /sbin/
 

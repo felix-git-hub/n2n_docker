@@ -26,7 +26,8 @@ RUN set -x && \
     curl -o \
     /tmp/n2n.deb -L \
     https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb && \
-    ls /tmp
+    ls /tmp && \
+    dpkg -i /tmp/n2n.deb
 #user permission
 WORKDIR /sbin/
 

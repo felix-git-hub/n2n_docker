@@ -5,10 +5,10 @@ set -x
 echo $COMMUNITY > /config/community
 # 判断 mode
 if [ "$MODE" = "supernode" ]; then
-    /usr/sbin/supernode -f -v -c /config/community -p $SUP_PORT $N2N_OPTION
+    /n2n/supernode -f -v -c /config/community -p $SUP_PORT $N2N_OPTION
 # port default 7654
 else
     # 执行 b 命令
-    /usr/sbin/edge  -f -v -c $COMMUNITY  -a $N2N_IP -k $N2N_KEY -m $N2N_MAC -l  $N2N_SUP $N2N_OPTION
+    /n2n/edge  -f -v -c $COMMUNITY  -a $N2N_IP -k $N2N_KEY -m $N2N_MAC -l  $N2N_SUP $N2N_OPTION
 fi
 set +x

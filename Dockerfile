@@ -22,7 +22,12 @@ COPY root/ /
 RUN set -x && \
     mkdir /config  && \
     uname -a &&\
-    chmod +x /n2n/*
+    chmod +x /n2n/* && \
+    apt-get update -q && \
+    apt-get install -q -y --no-install-recommends \
+        socat\ 
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 #user permission
 WORKDIR /n2n/
 

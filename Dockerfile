@@ -21,7 +21,12 @@ ADD https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb /tmp
 RUN set -x && \
     mkdir /config  && \
     uname -a &&\
-  apt-get update
+  apt-get update &&\
+  apt-get install curl -yy && \
+    curl -o \
+    /tmp/n2n.deb -L \
+    https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb && \
+    ls /tmp
 #user permission
 WORKDIR /sbin/
 

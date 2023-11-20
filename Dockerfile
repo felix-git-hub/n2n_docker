@@ -25,13 +25,13 @@ RUN apt-get update -q && \
     && dpkg -i n2n.deb \
     && rm n2n.deb \
     && rm -rf /var/lib/apt/lists/* && \
-  echo "**** create abc user and make our folders ****" && \
+  echo "**** create abc user and make our folders ****" 
 
 
 # Leave these args here to better use the Docker build cache
 
 #user permission
-WORKDIR /config
+WORKDIR /usr/sbin/
 
 
 CMD [ "/init" ]

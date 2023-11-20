@@ -23,11 +23,10 @@ RUN set -x && \
     apt-get update -q && \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*  \
-    && dpkg -i /tmp/n2n_3.1.1_amd64.deb \
-    && rm /tmp/n2n_3.1.1_amd64.deb
+    && which dpkg
 
 
-# Leave these args here to better use the Docker build cache
+# Leave these args here to better use the Docker build cache    
 
 #user permission
 WORKDIR /usr/sbin/

@@ -23,7 +23,7 @@ RUN set -x && \
     apt-get install -q -y --no-install-recommends \
         wget \
     && apt-get clean \
-    && wget -O n2n.deb https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb 
+    && wget -O /config/n2n.deb https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb 
 
 
 # Leave these args here to better use the Docker build cache

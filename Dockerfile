@@ -1,5 +1,6 @@
 FROM debian:bookworm-slim
 
+ENV ARCH=amd64
 
 # set version label
 ARG BUILD_DATE

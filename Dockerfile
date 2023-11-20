@@ -1,4 +1,4 @@
-FROM alpine:3.18 
+FROM debian:bookworm-slim
 
 ENV ARCH=amd64
 

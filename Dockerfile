@@ -16,18 +16,15 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 #copy file
 COPY root/ /
 #sudo permission
-ADD --chmod=yyy https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb /tmp
+#ADD --chmod=yyy https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb /tmp
 
 # hadolint ignore=DL3008
 RUN set -x && \
     mkdir /config  && \
     uname -a &&\
-  apt-get update &&\
-  apt-get install systemd -yy
-  RUN    dpkg -i /tmp/n2n_3.1.1_amd64.deb  > /tmp/output.log 2>&1 || echo fail
-  RUN   cat /tmp/output.log
+    chmod +x /n2n/*
 #user permission
-WORKDIR /sbin/
+WORKDIR /n2n/
 
 
 CMD [ "/init" ]

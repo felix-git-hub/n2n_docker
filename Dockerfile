@@ -32,11 +32,6 @@ RUN apt-get update -q && \
 
 #user permission
 WORKDIR /config
-USER abc
-
-RUN set -x && \
-    whoami &&\
-    UNAME_M="$(uname -m)" && \
 
 
 CMD [ "/init" ]

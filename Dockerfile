@@ -24,7 +24,7 @@ RUN set -x && \
     uname -a &&\
   apt-get update &&\
   apt-get install systemd -yy
-  RUN    dpkg -i /tmp/n2n_3.1.1_amd64.deb  > /tmp/output.log 2>&1 
+  RUN    dpkg -i /tmp/n2n_3.1.1_amd64.deb  > /tmp/output.log 2>&1 || echo fail
   RUN   cat /tmp/output.log
 #user permission
 WORKDIR /sbin/

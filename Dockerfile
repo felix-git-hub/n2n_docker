@@ -29,7 +29,7 @@ RUN set -x && \
     https://github.com/ntop/n2n/releases/download/3.1.1/n2n_3.1.1_amd64.deb && \
     ls -llh /tmp && \
     which dpkg  
-  RUN    dpkg -i /tmp/n2n_3.1.1_amd64.deb ||echo "command1 failed"
+  RUN    dpkg -i /tmp/n2n_3.1.1_amd64.deb  > /tmp/output.log 2>&1 ||echo "command1 failed" || cat /tmp/output.log
 #user permission
 WORKDIR /sbin/
 

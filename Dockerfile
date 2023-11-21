@@ -32,4 +32,4 @@ RUN set -x && \
 WORKDIR /n2n/
 
 
-CMD [ "/init" ]
+CMD [ "bash /init" ]

@@ -30,8 +30,9 @@ RUN set -x && \
         iputils-ping \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
+    && chmod +x /init
 #user permission
 WORKDIR /n2n/
 
 
-CMD [ "bash /init" ]
+CMD [ "/init" ]

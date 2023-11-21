@@ -2,6 +2,14 @@
 
 # 获取 mode 变量
 set -x
+
+
+if [ "$SOCAT_MODE" = "enable" ]; then
+    socat $SOCAT_MONITOR,reuseaddr,fork $SOCAT_FORK &
+
+fi
+
+
 echo $COMMUNITY > /config/community
 # 判断 mode
 if [ "$MODE" = "supernode" ]; then
@@ -17,10 +25,7 @@ else
    echo  "MODE can only be edge/supernode/both "
     exit 0
 fi
-if [ "$SOCAT_MODE" = "enable" ]; then
-    socat $SOCAT_MONITOR,reuseaddr,fork $SOCAT_FORK
 
-fi
 
 
 set +x

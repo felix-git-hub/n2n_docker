@@ -25,7 +25,9 @@ RUN set -x && \
     chmod +x /n2n/* && \
     apt-get update -q && \
     apt-get install -q -y --no-install-recommends \
-        socat\ 
+        socat \ 
+        net-tools \
+        iputils-ping \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 #user permission

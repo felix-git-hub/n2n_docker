@@ -1,5 +1,3 @@
-
-
 #!/bin/bash
 
 # 获取 mode 变量
@@ -19,4 +17,10 @@ else
    echo  "MODE can only be edge/supernode/both "
     exit 0
 fi
+if [ "$SOCAT_MODE" = "on" ]; then
+    socat $SOCAT_MONITOR,reuseaddr,fork $SOCAT_FORK
+
+fi
+
+
 set +x

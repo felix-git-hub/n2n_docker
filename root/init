@@ -17,7 +17,7 @@ else
    echo  "MODE can only be edge/supernode/both "
     exit 0
 fi
-if [ "$SOCAT_MODE" = "ENABLE" ]; then
+if [ "$SOCAT_MODE" = "enable" ]; then
     socat $SOCAT_MONITOR,reuseaddr,fork $SOCAT_FORK
 
 fi
